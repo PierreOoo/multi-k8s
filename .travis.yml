@@ -17,9 +17,6 @@ before_install:
   - gcloud container clusters get-credentials multi-k8s
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t pmigalski/react-test -f ./client/Dockerfile.dev ./client
-  - rm service-account.json
-  - echo "SHA=$SHA"
-
 
 script:
   - docker run pmigalski/react-test npm run test -- --coverage

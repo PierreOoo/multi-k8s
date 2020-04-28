@@ -1,5 +1,3 @@
-set -x
-echo "SHA=$SHA"
 docker build -t pmigalski/multi-client:latest -t pmigalski/multi-client:$SHA -f ./client/Dockerfile ./client
 docker build -t pmigalski/multi-server:latest -t pmigalski/multi-server:$SHA -f ./server/Dockerfile ./server
 docker build -t pmigalski/multi-worker:latest -t pmigalski/multi-worker:$SHA -f ./worker/Dockerfile ./worker
