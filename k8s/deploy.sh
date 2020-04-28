@@ -7,9 +7,7 @@ docker push pmigalski/multi-worker:latest
 docker push pmigalski/multi-client:$SHA
 docker push pmigalski/multi-server:$SHA
 docker push pmigalski/multi-worker:$SHA
-
-
 kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=pmigalski/multi-server:$SHA
-kubectl set image deployments/client-deployment server=pmigalski/multi-client:$SHA
-kubectl set image deployments/worker-deployment server=pmigalski/multi-worker:$SHA
+kubectl set image deployments/client-deployment client=pmigalski/multi-client:$SHA
+kubectl set image deployments/worker-deployment worker=pmigalski/multi-worker:$SHA
